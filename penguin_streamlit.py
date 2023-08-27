@@ -115,4 +115,9 @@ ax = sns.displot(x=penguin_df['flipper_length_mm'],
 plt.axvline(flipper_length)
 plt.title('Flipper Length by Species')
 st.pyplot(ax)
+g = sns.PairGrid(penguin_df[['species', 'bill_length_mm', 'bill_depth_mm', 'flipper_length_mm', 'body_mass_g']], hue="species")
+g.map_diag(sns.histplot)
+g.map_offdiag(sns.scatterplot)
+g.add_legend()
+st.pyplot(g)
  
